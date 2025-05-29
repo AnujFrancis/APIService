@@ -1,4 +1,4 @@
-# API Service
+# API Service (Java)
 
 This service provides the backend API for customer data management. It serves as the middle layer in the three-tier architecture, connecting the frontend console service with the data service.
 
@@ -11,7 +11,7 @@ This service provides the backend API for customer data management. It serves as
 
 ## API Endpoints
 
-- `GET /health` - Health check endpoint with dependency status
+- `GET /api/health` - Health check endpoint with dependency status
 - `POST /api/customers` - Create a new customer
 - `GET /api/customers` - Get all customers
 - `GET /api/customers/search` - Search for customers by ID, name, or alias
@@ -20,9 +20,9 @@ This service provides the backend API for customer data management. It serves as
 
 ## Setup
 
-1. Install dependencies:
+1. Build the project:
    ```
-   npm install
+   mvn clean package
    ```
 
 2. Configure the data service URL (optional):
@@ -30,9 +30,16 @@ This service provides the backend API for customer data management. It serves as
    export DATA_SERVICE_URL=http://localhost:3002
    ```
 
-3. Start the service:
+3. Run the service:
    ```
-   npm start
+   mvn spring-boot:run
    ```
 
 The service will run on port 3001 by default and connect to the data service at http://localhost:3002.
+
+## Technology Stack
+
+- Java 11
+- Spring Boot 2.7.8
+- Spring WebFlux for reactive API calls
+- Project Lombok for reducing boilerplate code
